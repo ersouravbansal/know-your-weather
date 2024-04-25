@@ -5,40 +5,50 @@ import WeatherDetails from './WeatherDetails';
 import '../styles/WeatherDashboard.css';
 
 const WeatherDashboard = () => {
-  const [city, setCity] = useState('');
-  const [weather, setWeather] = useState(null);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [weatherData, setWeatherData] = useState({
+    weather: null,
+    error: null,
+    loading: false,
+  });
 
   const fetchWeather = async (cityName) => {
-    setLoading(true);
+    if (!cityName.trim()) {
+      setWeatherData({
+        weather: null,
+        error: 'City name cannot be empty. Please enter a valid city name.',
+        loading: false,
+      });
+      return;
+    }
+
+    setWeatherData({ loading: true, error: null });
+
     try {
       const apiKey = '003598d23b6da5ba5081c1269ff8faf3';
       const response = await axios.get(
         `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`
       );
-      setWeather(response.data);
-      setError(null);
+      setWeatherData({
+        weather: response.data,
+        error: null,
+        loading: false,
+      });
     } catch (err) {
-      setWeather(null);
-      setError('City not found. Please try again.');
-    } finally {
-      setLoading(false); // Hide loading indicator
+      setWeatherData({
+        weather: null,
+        error: 'City not found. Please try again with a valid city name.',
+        loading: false,
+      });
     }
-  };
-
-  const handleSearch = (cityName) => {
-    setCity(cityName);
-    fetchWeather(cityName);
   };
 
   return (
     <div className="weather-dashboard">
       <h1>Weather Dashboard</h1>
-      <SearchBar onSearch={handleSearch} />
-      {loading && <div className="loading">Loading...</div>} {/* Loading indicator */}
-      {error && <div className="error">{error}</div>}
-      {weather && <WeatherDetails weather={weather} />}
+      <SearchBar onSearch={fetchWeather} />
+      {weatherData.loading && <div className="loading">Loading...</div>}
+      {weatherData.error && <div className="error">{weatherData.error}</div>}
+      {weatherData.weather && <WeatherDetails weather={weatherData.weather} />}
     </div>
   );
 };

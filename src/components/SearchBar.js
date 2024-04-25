@@ -1,11 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const SearchBar = ({ onSearch }) => {
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
+
+  const handleChange = (e) => {
+    setInput(e.target.value);
+  };
 
   const handleSearch = () => {
-    if (input.trim() !== '') {
-      onSearch(input.trim());
+    const trimmedInput = input.trim();
+    if (trimmedInput) {
+      onSearch(trimmedInput);
+      setInput("");
+    } else {
+      onSearch("");
+    }
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleSearch();
     }
   };
 
@@ -14,7 +28,8 @@ const SearchBar = ({ onSearch }) => {
       <input
         type="text"
         value={input}
-        onChange={(e) => setInput(e.target.value)}
+        onChange={handleChange}
+        onKeyPress={handleKeyPress}
         placeholder="Enter city name"
       />
       <button onClick={handleSearch}>Search</button>

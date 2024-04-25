@@ -6,27 +6,34 @@ const WeatherDetails = ({ weather }) => {
     return null;
   }
 
-  const { main, wind, weather: weatherDesc } = weather;
+  const {
+    name,
+    main: { temp, humidity },
+    wind: { speed: windSpeed },
+    weather: weatherDescriptions,
+  } = weather;
+
+  const description = weatherDescriptions[0]?.description || 'No description available';
 
   return (
     <div className="weather-details">
-      <h2>{weather.name}</h2>
-      <p><strong>{weatherDesc[0].description}</strong></p>
+      <h2>{name}</h2>
+      <p><strong>{description}</strong></p>
 
       <div className="weather-info">
-        <div className="info-item temperature">
+        <div className="info-item">
           <i className="fa-solid fa-temperature-high"></i>
-          <span>Temperature: {main.temp}°C</span>
+          <span>Temperature: {temp}°C</span>
         </div>
 
-        <div className="info-item humidity">
-          <i className="fa-solid fa-tint"></i>
-          <span>Humidity: {main.humidity}%</span>
+        <div className="info-item">
+          <i class="fa-solid fa-tint"></i>
+          <span>Humidity: {humidity}%</span>
         </div>
 
-        <div classname="info-item wind">
-          <i className="fa-solid fa-wind"></i>
-          <span>Wind Speed: {wind.speed} m/s</span>
+        <div class="info-item">
+          <i class="fa-solid fa-wind"></i>
+          <span>Wind Speed: {windSpeed} m/s</span>
         </div>
       </div>
     </div>
