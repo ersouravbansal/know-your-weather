@@ -27,12 +27,12 @@ const WeatherDetails = ({ weather }) => {
         </div>
 
         <div className="info-item">
-          <i class="fa-solid fa-tint"></i>
+          <i className="fa-solid fa-tint"></i>
           <span>Humidity: {humidity}%</span>
         </div>
 
-        <div class="info-item">
-          <i class="fa-solid fa-wind"></i>
+        <div className="info-item">
+          <i className="fa-solid fa-wind"></i>
           <span>Wind Speed: {windSpeed} m/s</span>
         </div>
       </div>
