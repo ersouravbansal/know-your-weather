@@ -28,21 +28,29 @@ npm install
 https://openweathermap.org/
 
 ## Usage
-1. Insert your OpenWeatherMap API key: In the WeatherDashboard component, replace YOUR_API_KEY with your actual API key.
-const fetchWeather = async () => {
-  try {
-    const apiKey = 'YOUR_API_KEY'; // Replace with your OpenWeatherMap API key
-    const response = await axios.get(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
-    );
-    setWeather(response.data);
-    setError(null);
-  } catch (err) {
-    setWeather(null);
-    setError('City not found. Please try again.');
-  }
-};
+1. Insert your OpenWeatherMap API key: In the .env, add your API Key and API Url. and then use them in WeatherDashboard.js
+  const apiKey = process.env.REACT_APP_API_KEY;
+  const apiUrl = process.env.REACT_APP_API_URL;
+    const [weatherData, setWeatherData] = useState({
+    weather: null,
+    error: null,
+    loading: false,
+  });
+  const fetchWeather = async (cityName) => {
 
+    setWeatherData({ loading: true, error: null });
+
+    try {
+      const response = await axios.get(
+        `${apiUrl}/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`
+      );
+      setWeatherData({
+        weather: response.data,
+        error: null,
+        loading: false,
+      });
+    }
+  };
 2. Start the development server: Use the following command to start the application.
 npm run start
 
