@@ -1,0 +1,29 @@
+/* WeatherDashboard.css */
+
+.weather-dashboard {
+    text-align: center;
+    padding: 20px;
+    background: url(../images/bg.jpg);
+    min-width: 70%;
+    height: auto;
+  }
+  
+  .weather-dashboard h1 {
+    color: #333;
+  }
+  
+  .weather-dashboard .error {
+    color: red;
+    margin-top: 10px;
+  }
+  
+  .weather-dashboard .loading {
+    color: #555;
+    margin-top: 10px;
+  }
+  
+  @media (max-width: 767px) {
+  
+  }
+  
+  

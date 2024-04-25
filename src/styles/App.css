@@ -1,0 +1,70 @@
+/* App.css or a similar global CSS file */
+
+
+body, html {
+  height: 100%; 
+  margin: 0; 
+}
+
+#root {
+  height: 100%;
+  background: linear-gradient(to bottom, #f5f7fa, #c3cfe2); 
+  display: flex; 
+  justify-content: center; 
+}
+
+.weather-dashboard {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.9); 
+  border: 1px solid #ddd;
+  min-width: 100%; 
+  margin-top: 20px;
+}
+
+.weather-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px; 
+}
+
+.search-bar {
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.search-bar button {
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+}
+
+.weather-details {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+@media (max-width: 767px) {
+  .search-bar {
+    flex-direction: column;
+  }
+
+  .search-bar input,
+  .search-bar button {
+    width: 80%;
+    margin: 5px 0;
+  }
+}

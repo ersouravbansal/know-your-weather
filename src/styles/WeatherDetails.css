@@ -1,0 +1,50 @@
+/* WeatherDetails.css */
+
+.weather-details {
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    margin-top: 20px;
+    background: linear-gradient(to bottom, #f5f7fa, #c3cfe2)
+  }
+  
+  .weather-details h2 {
+    color: #333;
+    margin-bottom: 8px;
+  }
+  
+  .weather-details p {
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .weather-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; 
+  }
+  
+  .info-item {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    gap: 8px;
+    padding: 10px; 
+    border-radius: 5px; 
+    width: 100%; 
+  }
+  
+  .info-item.temperature {
+    background-color: #ffcccb; 
+  }
+  
+  .info-item.humidity {
+    background-color: #b3e5fc; 
+  }
+  
+  .info-item.wind {
+    background-color: #dcedc8; 
+  }
+  
