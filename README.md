@@ -19,8 +19,8 @@ Know Your City Weather- built with React that allows users to search for current
 1. Clone this repository to your local machine:
    ```bash
    git clone https://github.com/ersouravbansal/know-your-weather.git
-   cd weather-dashboard
-
+   
+Open Project in code editor
 2. Install the required dependencies:
 npm install
 
