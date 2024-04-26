@@ -6,9 +6,6 @@ Know Your City Weather- built with React that allows users to search for current
 1. [Features](#features)
 2. [Installation](#installation)
 3. [Usage](#usage)
-4. [OpenWeatherMap API Key](#openweathermap-api-key)
-5. [Contributing](#contributing)
-6. [License](#license)
 
 ## Features
 - Search function to find current weather information by city name.
@@ -19,7 +16,7 @@ Know Your City Weather- built with React that allows users to search for current
 1. Clone this repository to your local machine:
    ```bash
    git clone https://github.com/ersouravbansal/know-your-weather.git
-   
+
 Open Project in code editor
 2. Install the required dependencies:
 npm install
